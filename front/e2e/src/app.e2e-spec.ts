@@ -8,8 +8,9 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display welcome message', async () => {
     page.navigateTo();
+    await browser.sleep(5000);
     expect(page.getTitleText()).toEqual('front app is running!');
   });
 
