@@ -1,0 +1,7 @@
+footer {
+  height: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eee;
+}
