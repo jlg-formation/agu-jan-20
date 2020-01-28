@@ -51,6 +51,22 @@ button {
       border-color: #ccc;
       background: #ccc;
     }
+
+    &.primary {
+      border-color: #333;
+      background: #333;
+      color: white;
+
+      &:hover {
+        border-color: #444;
+        background: #444;
+      }
+
+      &:active {
+        border-color: #555;
+        background: #555;
+      }
+    }
   }
 }
 
