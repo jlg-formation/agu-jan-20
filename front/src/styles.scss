@@ -6,13 +6,34 @@ body {
   color: inherit;
   font-size: 1em;
   font-family: sans-serif;
+
+  @media screen and (min-width: 900px) {
+    font-size: 2vw;
+  }
 }
 
 a {
   color: inherit;
   text-decoration: inherit;
+
+  &:hover {
+    color: #222;
+  }
 }
 
-a:hover {
-  color: #222;
+button {
+  border: 0.1em solid #eee;
+  background: #eee;
+
+  &:not(:disabled) {
+    &:hover {
+      border-color: #ddd;
+      background: #ddd;
+    }
+
+    &:active {
+      border-color: #ccc;
+      background: #ccc;
+    }
+  }
 }
