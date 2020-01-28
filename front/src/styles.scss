@@ -79,7 +79,12 @@ label {
   padding: 0.5em 0;
 }
 
-input {
+input, textarea {
+  width: 100%;
   padding: 0.5em 1em;
   border: 0.1em solid #eee;
+}
+
+input[type=radio] {
+  width: 3em;
 }
