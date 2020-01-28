@@ -2,6 +2,10 @@
 
 @import "../node_modules/normalize.css/normalize.css";
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
   color: inherit;
   font-size: 1em;
@@ -10,6 +14,12 @@ body {
   @media screen and (min-width: 900px) {
     font-size: 2vw;
   }
+}
+
+main {
+  width: 100%;
+  max-width: 40em;
+  padding: 0.5em;
 }
 
 a {
@@ -22,6 +32,7 @@ a {
 }
 
 button {
+  padding: 0.5em 1em;
   border: 0.1em solid #eee;
   background: #eee;
 
