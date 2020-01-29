@@ -6,6 +6,7 @@ import { ListComponent } from './list/list.component';
 import { ScoreComponent } from './score/score.component';
 import { QuestionComponent } from './question/question.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { WidgetModule } from '../widget/widget.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   imports: [
     CommonModule,
     QuizzPlayRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    WidgetModule
   ]
 })
 export class QuizzPlayModule { }
