@@ -6,6 +6,7 @@ import { Question } from '../interfaces/question';
   providedIn: 'root'
 })
 export class QuizzService {
+
   current = this.getCurrent();
   quizzMap = this.getQuizzMap();
 
@@ -64,5 +65,10 @@ export class QuizzService {
 
   getQuizzList(): Quizz[] {
     return Object.values(this.quizzMap);
+  }
+
+  setCurrent(q: Quizz) {
+    this.current = q;
+    this.saveCurrent();
   }
 }

@@ -14,6 +14,8 @@ export class ListComponent implements OnInit {
   ngOnInit() {}
 
   select(q: Quizz) {
+    this.quizz.setCurrent(q);
+
     this.router.navigateByUrl('/question');
   }
 }
