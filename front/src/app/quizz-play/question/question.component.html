@@ -2,14 +2,14 @@
   <h1>Quizz: {{ quizz.current.name }}</h1>
   <h2>Question : {{ quizz.progress.questionId + 1 }}</h2>
   <p>{{ quizz.current.questions[quizz.progress.questionId].label }}</p>
-  <form>
+  <form [formGroup]="f">
     <label *ngFor="let letter of ['A', 'B', 'C', 'D']">
-      <input type="radio" />
+      <input type="radio" formControlName="givenAnswer" [value]="letter" />
       <span class="letter">{{ letter }}</span>
       <span class="answer">{{
         quizz.current.questions[quizz.progress.questionId]['answer' + letter]
       }}</span>
     </label>
-    <button class="primary" routerLink="/score">Valider</button>
+    <button class="primary" routerLink="/score" [disabled]="f.invalid">Valider</button>
   </form>
 </main>

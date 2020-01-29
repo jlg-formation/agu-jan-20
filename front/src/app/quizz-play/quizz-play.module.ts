@@ -7,6 +7,7 @@ import { ScoreComponent } from './score/score.component';
 import { QuestionComponent } from './question/question.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { WidgetModule } from '../widget/widget.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { WidgetModule } from '../widget/widget.module';
     CommonModule,
     QuizzPlayRoutingModule,
     FontAwesomeModule,
-    WidgetModule
+    WidgetModule,
+    ReactiveFormsModule
   ]
 })
 export class QuizzPlayModule { }
