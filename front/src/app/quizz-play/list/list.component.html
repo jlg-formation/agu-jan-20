@@ -1,7 +1,7 @@
 <main>
   <h1>Liste des quizz</h1>
   <div class="buttons">
-    <button *ngFor="let q of quizz.getQuizzList()" routerLink="/question">
+    <button *ngFor="let q of quizz.getQuizzList()" (click)="select(q)">
       {{ q.name }}
     </button>
   </div>
