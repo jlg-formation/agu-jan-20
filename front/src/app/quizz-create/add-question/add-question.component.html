@@ -1,20 +1,22 @@
 <main>
   <h1>Ajoute une question</h1>
-  <form ngNoForm>
+  <form [formGroup]="f">
     <label>
       <div>Libellé</div>
-      <textarea appAutofocus rows="3"></textarea>
+      <textarea appAutofocus rows="3" formControlName="label"></textarea>
     </label>
     <div class="answers">
       <label *ngFor="let letter of ['A', 'B', 'C', 'D']">
         <span>{{ letter }}</span>
-        <input type="text" />
-        <input type="radio" />
+        <input type="radio" formControlName="correctAnswer" [value]="letter" />
+        <input type="text" [formControlName]="'answer' + letter" />
       </label>
     </div>
     <div class="buttons">
       <button routerLink="/setup">Annuler</button>
-      <button routerLink="/setup" class="primary">Ajouter</button>
+      <button routerLink="/setup" class="primary" [disabled]="f.invalid">Ajouter</button>
     </div>
   </form>
 </main>
+
+{{ f.value | json }}
