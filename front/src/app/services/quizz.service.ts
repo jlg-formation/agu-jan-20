@@ -6,8 +6,9 @@ import { Question } from '../interfaces/question';
   providedIn: 'root'
 })
 export class QuizzService {
-
   current = this.getCurrent();
+  quizzMap = this.getQuizzMap();
+
   constructor() {}
 
   createCurrent(name: string) {
@@ -34,5 +35,26 @@ export class QuizzService {
   addQuestion(question: Question) {
     this.current.questions.push(question);
     this.saveCurrent();
+  }
+
+  saveQuizz() {
+    this.quizzMap[this.current.name] = this.current;
+    this.saveQuizzMap();
+  }
+
+  getQuizzMap(): { [name: string]: Quizz } {
+    const str = localStorage.getItem('quizz-map');
+    if (!str) {
+      return {};
+    }
+    const qm = JSON.parse(str);
+    for (let name of Object.keys(qm)) {
+      Object.setPrototypeOf(qm[name], Quizz.prototype);
+    }
+    return qm;
+  }
+
+  saveQuizzMap() {
+    localStorage.setItem('quizz-map', JSON.stringify(this.quizzMap));
   }
 }
