@@ -10,6 +10,10 @@
         quizz.current.questions[quizz.progress.questionId]['answer' + letter]
       }}</span>
     </label>
-    <button class="primary" routerLink="/score" [disabled]="f.invalid">Valider</button>
+    <button class="primary" routerLink="/score" [disabled]="f.invalid">
+      Valider
+    </button>
   </form>
 </main>
+
+{{ f.value | json }}
