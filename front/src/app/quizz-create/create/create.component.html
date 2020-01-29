@@ -1,10 +1,17 @@
 <main>
   <h1>Crée ton Quizz</h1>
-  <form ngNoForm>
+  <form [formGroup]="f" (ngSubmit)="submit()">
     <label>
       <div>Nom du quizz</div>
-      <input type="text" appAutofocus />
+      <input
+        type="text"
+        appAutofocus
+        placeholder="Ex: titi"
+        formControlName="name"
+      />
     </label>
-    <button routerLink="/setup" class="primary">Suivant</button>
+    <button type="submit" class="primary" [disabled]="f.invalid">Suivant</button>
   </form>
 </main>
+
+{{ f.value | json }}
