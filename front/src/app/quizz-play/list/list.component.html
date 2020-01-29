@@ -1,9 +1,8 @@
 <main>
   <h1>Liste des quizz</h1>
   <div class="buttons">
-    <button routerLink="/question">Toto</button>
-    <button>Les plus belles capitales de l'Europe</button>
-    <button>Les plus belles capitales de l'Europe</button>
-    <button>Les plus belles capitales de l'Europe</button>
+    <button *ngFor="let q of quizz.getQuizzList()" routerLink="/question">
+      {{ q.name }}
+    </button>
   </div>
 </main>

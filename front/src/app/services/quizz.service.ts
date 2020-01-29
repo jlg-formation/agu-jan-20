@@ -61,4 +61,8 @@ export class QuizzService {
   hasQuizz() {
     return Object.keys(this.quizzMap).length > 0;
   }
+
+  getQuizzList(): Quizz[] {
+    return Object.values(this.quizzMap);
+  }
 }
