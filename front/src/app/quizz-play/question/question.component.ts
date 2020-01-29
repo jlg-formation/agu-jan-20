@@ -8,13 +8,14 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./question.component.scss']
 })
 export class QuestionComponent implements OnInit {
-
   f = new FormGroup({
     givenAnswer: new FormControl('', Validators.required)
   });
-  constructor(public quizz: QuizzService) { }
+  constructor(public quizz: QuizzService) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  submit() {
+    console.log('submit...');
   }
-
 }
