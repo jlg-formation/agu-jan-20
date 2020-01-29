@@ -57,4 +57,8 @@ export class QuizzService {
   saveQuizzMap() {
     localStorage.setItem('quizz-map', JSON.stringify(this.quizzMap));
   }
+
+  hasQuizz() {
+    return Object.keys(this.quizzMap).length > 0;
+  }
 }
