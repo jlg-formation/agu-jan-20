@@ -1,6 +1,23 @@
 <main>
-  <fa-icon [icon]="faSmileWink"></fa-icon>
-  <h1>Bravo !</h1>
-  <p>Ton score: 3 / 4</p>
+  <ng-container
+    *ngIf="
+      quizz.progress.score === quizz.current.questions.length;
+      then bravo;
+      else poo
+    "
+  >
+  </ng-container>
+  <ng-template #bravo>
+    <fa-icon [icon]="faSmileWink"></fa-icon>
+    <h1>Bravo !</h1>
+  </ng-template>
+  <ng-template #poo>
+    <fa-icon [icon]="faPoo"></fa-icon>
+    <h1>Peut mieux faire...</h1>
+  </ng-template>
+
+  <p>
+    Ton score: {{ quizz.progress.score }} / {{ quizz.current.questions.length }}
+  </p>
   <button appAutofocus class="primary" routerLink="/">Retour Accueil</button>
 </main>
