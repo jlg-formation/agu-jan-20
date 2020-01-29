@@ -1,7 +1,7 @@
 <main>
-  <h1>Quizz: Toto</h1>
-  <h2>Question : 1</h2>
-  <p>Quelle est la capitale de la France ? </p>
+  <h1>Quizz: {{ quizz.current.name }}</h1>
+  <h2>Question : {{ quizz.progress.questionId + 1 }}</h2>
+  <p>Quelle est la capitale de la France ?</p>
   <form>
     <label *ngFor="let letter of ['A', 'B', 'C', 'D']">
       <input type="radio" />
