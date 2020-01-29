@@ -1,0 +1,14 @@
+h1 {
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+button {
+  margin: 0.7em;
+  height: 8em;
+  width: 8em;
+}
