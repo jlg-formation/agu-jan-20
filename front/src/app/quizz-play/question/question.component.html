@@ -1,12 +1,14 @@
 <main>
   <h1>Quizz: {{ quizz.current.name }}</h1>
   <h2>Question : {{ quizz.progress.questionId + 1 }}</h2>
-  <p>Quelle est la capitale de la France ?</p>
+  <p>{{ quizz.current.questions[quizz.progress.questionId].label }}</p>
   <form>
     <label *ngFor="let letter of ['A', 'B', 'C', 'D']">
       <input type="radio" />
       <span class="letter">{{ letter }}</span>
-      <span class="answer">Paris</span>
+      <span class="answer">{{
+        quizz.current.questions[quizz.progress.questionId]['answer' + letter]
+      }}</span>
     </label>
     <button class="primary" routerLink="/score">Valider</button>
   </form>
