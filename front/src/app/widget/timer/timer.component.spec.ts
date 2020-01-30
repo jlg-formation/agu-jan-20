@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TimerComponent } from './timer.component';
-import { WidgetModule } from '../widget.module';
 import { TimeFormatPipe } from '../time-format.pipe';
 
 describe('TimerComponent', () => {
