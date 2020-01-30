@@ -16,7 +16,11 @@ export class QuizzHttpService extends QuizzService {
 
   refresh() {
     this.http.get<QuizzMap>('http://localhost:3000/v1/quizz').subscribe({
-      next: quizzList => console.log('quizzList: ', quizzList),
+      next: quizzMap => {
+        console.log('quizzMap: ', quizzMap);
+        this.quizzMap = quizzMap;
+        this.saveQuizzMap();
+      },
       error: err => console.error('err: ', err),
       complete: () => console.log('complete')
     });
