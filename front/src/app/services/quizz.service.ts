@@ -53,7 +53,7 @@ export class QuizzService {
       return {};
     }
     const qm = JSON.parse(str);
-    for (let name of Object.keys(qm)) {
+    for (const name of Object.keys(qm)) {
       Object.setPrototypeOf(qm[name], Quizz.prototype);
     }
     return qm;
