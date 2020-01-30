@@ -1,4 +1,4 @@
-<main>
+<main *ngIf="quizz.current">
   <ng-container
     *ngIf="
       quizz.progress.score === quizz.current.questions.length;

@@ -1,4 +1,4 @@
-<main>
+<main *ngIf="quizz.current">
   <app-timer [counter]="5" (dringdring)="timeout($event)"></app-timer>
   <h1>Quizz: {{ quizz.current.name }}</h1>
   <h2>Question : {{ quizz.progress.questionId + 1 }}</h2>
