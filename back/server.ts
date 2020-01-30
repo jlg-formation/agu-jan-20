@@ -1,13 +1,16 @@
 import express from "express";
 import serveIndex from "serve-index";
 import cors from "cors";
+import { QuizzMap } from "../front/src/app/interfaces/quizz-map";
 
 const app = express();
+
+let quizzMap: QuizzMap = {};
 
 app.use(cors());
 
 app.get('/v1/quizz', (req, res, next) => {
-  res.json([]);
+  res.json(quizzMap);
 });
 
 const www = "../front/dist/front";
