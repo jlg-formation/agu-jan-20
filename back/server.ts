@@ -6,6 +6,10 @@ const app = express();
 
 app.use(cors());
 
+app.get('/v1/quizz', (req, res, next) => {
+  res.json([]);
+});
+
 const www = "../front/dist/front";
 app.use(express.static(www));
 app.use(serveIndex(www, { icons: true }));
