@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { interval, Observable } from 'rxjs';
+import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
+import { interval, Observable, Subscription } from 'rxjs';
 import { startWith, map, take } from 'rxjs/operators';
 
 @Component({
@@ -7,8 +7,11 @@ import { startWith, map, take } from 'rxjs/operators';
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.scss']
 })
-export class TimerComponent implements OnInit {
-  counter$: Observable<number>;
+export class TimerComponent implements OnInit, OnDestroy {
+
+
+  subscription: Subscription;
+  myCounter: number;
   @Input() counter = 10;
 
   @Output() dringdring = new EventEmitter<string>();
@@ -18,8 +21,9 @@ export class TimerComponent implements OnInit {
   }
 
   ngOnInit() {
+
     console.log('counter', this.counter);
-    this.counter$ = interval(1000)
+    this.subscription = interval(1000)
       .pipe(
         startWith(-1),
         map(n => n + 1),
@@ -31,7 +35,14 @@ export class TimerComponent implements OnInit {
            return result;
         }),
         take(this.counter + 1)
-      );
+      ).subscribe(data => this.myCounter = data);
 
+  }
+
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+      this.subscription = undefined;
+    }
   }
 }

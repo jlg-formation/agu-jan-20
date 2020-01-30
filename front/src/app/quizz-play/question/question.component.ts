@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { QuizzService } from 'src/app/services/quizz.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TimerComponent } from 'src/app/widget/timer/timer.component';
 
 @Component({
   selector: 'app-question',
@@ -9,6 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./question.component.scss']
 })
 export class QuestionComponent implements OnInit {
+  @ViewChild(TimerComponent, { static: false }) timer: TimerComponent;
+
   f = new FormGroup({
     givenAnswer: new FormControl('', Validators.required)
   });
@@ -29,14 +32,19 @@ export class QuestionComponent implements OnInit {
     }
     this.quizz.progress.questionId++;
     this.quizz.saveProgress();
-    if (this.quizz.progress.questionId === this.quizz.current.questions.length) {
+    if (
+      this.quizz.progress.questionId === this.quizz.current.questions.length
+    ) {
       this.router.navigateByUrl('/score');
       return;
     }
     this.f.reset();
+    this.timer.ngOnDestroy();
+    this.timer.ngOnInit();
   }
 
   timeout(msg: string) {
-    alert('dring dring: ' + msg);
+    console.log('dring dring: ' + msg);
+    this.submit();
   }
 }
