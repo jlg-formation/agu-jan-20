@@ -6,7 +6,7 @@
       <textarea appAutofocus rows="3" formControlName="label"></textarea>
     </label>
     <div class="answers">
-      <label *ngFor="let letter of ['A', 'B', 'C', 'D']">
+      <label *ngFor="let letter of ['A', 'B', 'C', 'D']" class="{{letter}}">
         <span>{{ letter }}</span>
         <input type="radio" formControlName="correctAnswer" [value]="letter" />
         <input type="text" [formControlName]="'answer' + letter" />

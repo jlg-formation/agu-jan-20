@@ -10,8 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', async () => {
     page.navigateTo();
-    await browser.sleep(5000);
-    expect(page.getTitleText()).toEqual('front app is running!');
+    expect(page.getTitleText()).toEqual('Quizz');
   });
 
   afterEach(async () => {
