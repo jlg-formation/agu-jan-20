@@ -22,7 +22,19 @@ export class QuizzHttpService extends QuizzService {
         this.saveQuizzMap();
       },
       error: err => console.error('err: ', err),
-      complete: () => console.log('complete')
+      complete: () => console.log('complete get')
     });
   }
+
+  saveQuizzMap() {
+    super.saveQuizzMap();
+    this.http.post<QuizzMap>('http://localhost:3000/v1/quizz', this.quizzMap).subscribe({
+      next: quizzMap => {
+      },
+      error: err => console.error('err: ', err),
+      complete: () => console.log('complete post')
+    });
+  }
+
+
 }
